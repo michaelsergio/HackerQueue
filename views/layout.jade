@@ -17,18 +17,18 @@ html
 
       header
         div(style="position: center", "cursor: hand")
-          img(src="/HackerQueue.png", id="refresh", ng-click="refresh()")
+          img#refresh(src="/HackerQueue.png", ng-click="refresh()")
 
-        input(id="searchterm", type="text", ng-model="searchText",
-              placeholder="Filter…")
+        input#searchterm(type="text", ng-model="searchText",
+                         placeholder="Filter…")
         br
 
-        div(id="boxes")
+        #boxes
           //- Make a checkbox
           mixin source_checkbox(prefix, title)
-            input(class="check", type="checkbox", id=prefix+"Box",
-                  ng-model=prefix, name="check" checked)
-            label(class="box")
+            input.check(type="checkbox", id=prefix+"Box",
+                        ng-model=prefix, name="check" checked)
+            label.box
               strong=title
 
           +source_checkbox("hn", "Hacker News")
@@ -39,13 +39,13 @@ html
       #container
         #main-content
           #buttons
-            form(action="", id="newsType")
-              input(id="first", type="radio", name="content",
-                    ng-model="content", value="first")
+            form#newsType(action="")
+              input#first(type="radio", name="content",
+                          ng-model="content", value="first")
               label(for="first") Top
 
-              input(id="other", type="radio", name="content",
-                    ng-model="content", value="other")
+              input#other(type="radio", name="content",
+                          ng-model="content", value="other")
               label(for="other") New
               br
           p
@@ -56,7 +56,7 @@ html
 
       div
         #firstFooter
-          p(id="toTop" ng-click="goToTop()")
+          p#toTop(ng-click="goToTop()")
             strong Back to Top 
       footer
         #gh-content
