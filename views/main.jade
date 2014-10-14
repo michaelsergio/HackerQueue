@@ -1,30 +1,28 @@
 extend layout
 
 block content
-  ul(style="list-style:disc outside; margin-left:20px;")
+  ul(style="list-style-type: none; margin-left:20px;")
     #helper
   hr
 
-
   //- The template for a story line item
-  mixin story(id, hide_id, items_id)
+  mixin story(id, hide_id, items_id, icon_src)
     div(id=id ng-hide=hide_id)
       ul.story(ng-repeat="post in " + items_id + " | filter:searchText")
         li.post
-          p
+          p.link_content
+            a.comment-link(href="{{post.comments_link}}", target="_blank") 
+              img(src=icon_src)
             a.comment-link(href="{{post.url}}" target="_blank") 
               | {{post.title}}
-            sup.comment-super
-              a.comment-link(href="{{post.comments_link}}", target="_blank") 
-                | {{post.site}}
 
   #top(ng-show="content == 'first'")
-    +story("hTop", "hn", "hackerTop")
-    +story("lTop", "lobster", "lobTop")
-    +story("rTop", "rprog", "rTop")
+    +story("hTop", "hn",      "hackerTop", "../assets/hn_icon_32.png")
+    +story("lTop", "lobster", "lobTop",    "../assets/lb_icon_32.png")
+    +story("rTop", "rprog",   "rTop",      "../assets/rd_icon_32.png")
 
   #new(ng-show="content == 'other'")
-    +story("hNew", "hn", "hackerNew")
-    +story("lNew", "lobster", "lNew")
-    +story("rNew", "rprog", "rNew")
+    +story("hNew", "hn",      "hackerNew", "../assets/hn_icon_32.png")
+    +story("lNew", "lobster", "lNew",      "../assets/lb_icon_32.png")
+    +story("rNew", "rprog",   "rNew",      "../assets/rd_icon_32.png")
 

@@ -303,5 +303,5 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
   res.render('main', { title : 'Home' });
 });
-console.log('now running');
+console.log('Now Running');
 app.listen(3000);
