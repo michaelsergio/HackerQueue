@@ -60,7 +60,6 @@ app.get('/ycomb', function(req, res) {
 
 // end ycomb
 
-var metadataArray = [ ];
 
 // start Lobster stuff
 
@@ -105,7 +104,6 @@ app.get('/lobster', function(req, res) {
 
 // end Lobster stuff
 
-metadataArray = [ ];
 
 // rprog stuff here
 
@@ -152,7 +150,6 @@ app.get('/rp', function(req, res) { // pushes the info to a sub url
 
 //end rprog stuff
 
-metadataArray = [ ];
 
 // Start Ycombnew stuff
 
@@ -200,7 +197,6 @@ app.get('/ynew', function(req, res) {
 
 // end ycombnew
 
-metadataArray = [ ];
 
 // start Lobsternew stuff
 
@@ -246,7 +242,6 @@ app.get('/lnew', function(req, res) {
 
 // end Lobsternew stuff
 
-metadataArray = [ ];
 
 // rprognew stuff here
 
@@ -293,7 +288,6 @@ app.get('/rnew', function(req, res) {
 
 //end rprognew stuff
 
-metadataArray = [ ];
 
 
 app.set('views', __dirname + '/views'); // sets dir
