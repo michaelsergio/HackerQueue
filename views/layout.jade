@@ -1,58 +1,66 @@
 doctype html
 html
   head
-    title  HackerQueue
+    title HackerQueue
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/loading-bar.css')
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js")
     script(src="http://code.jquery.com/jquery-1.11.0.min.js")
 
-    link(rel='shortcut icon', href="http://i.imgur.com/kX8Dmef.jpg", type='image/x-icon')
+      link(rel='shortcut icon', type='image/x-icon',
+           href="http://i.imgur.com/kX8Dmef.jpg")
+
+    body(ng-app="app", ng-controller="AppTest as app")
+      script(type='text/javascript', src='analytics.js')
+      script(type='text/javascript', src='test.js')
+      script(type='text/javascript', src='loading-bar.js')
+
+      header
+        div(style="position: center", "cursor: hand")
+          img(src="/HackerQueue.png", id="refresh", ng-click="refresh()")
+
+        input(id="searchterm", type="text", ng-model="searchText",
+              placeholder="Filter…")
+        br
+
+        div(id="boxes")
+          //- Make a checkbox
+          mixin source_checkbox(prefix, title)
+            input(class="check", type="checkbox", id=prefix+"Box",
+                  ng-model=prefix, name="check" checked)
+            label(class="box")
+              strong=title
+
+          +source_checkbox("hn", "Hacker News")
+          +source_checkbox("lobster", "Lobste.rs")
+          +source_checkbox("rprog", "/r/programming")
 
 
+      #container
+        #main-content
+          #buttons
+            form(action="", id="newsType")
+              input(id="first", type="radio", name="content",
+                    ng-model="content", value="first")
+              label(for="first") Top
 
-    <body ng-app="app" ng-controller="AppTest as app">
-    script(type='text/javascript' src='analytics.js')
-    script(type='text/javascript' src='test.js')
-    script(type='text/javascript' src='loading-bar.js')
-    header
-      <div style="position: center" "cursor: hand">
-      <img src="/HackerQueue.png"  id="refresh" ng-click="refresh()" />
-      </div>
-      <input id="searchterm" type="text" placeholder= "Filter..."  ng-model="searchText"/><br>
-      <div id="boxes">
+              input(id="other", type="radio", name="content",
+                    ng-model="content", value="other")
+              label(for="other") New
+              br
+          p
+          block content
 
-      <input class="check" type="checkbox" id="hnBox" ng-model="hn" name="check" checked/>
-      <label class ="box"><strong>Hacker News</strong></label>
-
-      <input class="check" type="checkbox" id="lobsterBox" ng-model="lobster" name="check" checked/>
-      <label class="box"><strong>Lobste.rs</strong></label>
-
-      <input class="check" type="checkbox" id="rprogBox" ng-model="rprog" name="check" checked/>
-      <label class = "box"><strong>/r/programming</strong></label>
-      </div>
-
-
-    #container
-
-
-      #main-content
-        <div id="buttons">
-        <form action="" id = "newsType">
-        <input id="first" type="radio" name="content" ng-model="content" value="first">Top
-        <input id="other" type="radio" name="content" ng-model="content" value="other">New<br>
-        </form>
-        </div>
-        p
-
-        block content
-     #sidebar
+      #sidebar
         block sidebar
 
-    div
-      #firstFooter
-        <p id="toTop" ng-click="goToTop()""> <strong>Back to Top</strong></p>
-    footer
-      #gh-content
-        p Aggregates news from HackerNews, Lobste.rs, and Reddit.com/r/programming
-        <iframe src="http://ghbtns.com/github-btn.html?user=frankcash&repo=HackerQueue&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      div
+        #firstFooter
+          p(id="toTop" ng-click="goToTop()")
+            strong Back to Top 
+      footer
+        #gh-content
+          p Aggregates news from Hacker News, Lobste.rs, and Reddit.com/r/programming
+          iframe(src="http://ghbtns.com/github-btn.html?user=frankcash&repo=HackerQueue&type=watch&count=true",
+                 allowtransparency="true", frameborder="0", scrolling="0",
+                 width="110", height="20")
