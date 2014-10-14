@@ -10,7 +10,7 @@ block content
   mixin story(id, hide_id, items_id)
     div(id=id ng-hide=hide_id)
       ul.story(ng-repeat="post in " + items_id + " | filter:searchText")
-        li(id="post")
+        li.post
           p
             a(href="{{post.url}}" style="text-decoration:none" target="_blank") 
               | {{post.title}}
