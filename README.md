@@ -5,9 +5,8 @@ Your favorite tech sites compiled down to topics you find interesting.
 
 
 
-==========
 F.A.Q.
-===
+======
 
 Q. Why did we create this?
 
@@ -25,12 +24,14 @@ Q. What if I want more sites to be added?
 
 A. Please create an issue report and mark it as an enhancement.  I will look into it.  If the site is related to Comp Sci/Comp Eng/ Networking or their cultures I will probably add it when I get free time.
 
-==========
+Development 
+=============
+
 API Routes
-===
+--------------
 
 For Top Posts
-==
+---------------
 
 | Call  | Site |
 | ------------- | ------------- |
@@ -41,7 +42,8 @@ For Top Posts
 
 
 For New Posts
-==
+-------------------
+
 
 | Call  | Site |
 | ------------- | ------------- |
@@ -51,8 +53,9 @@ For New Posts
 
 
 Route Properties
+------------------
 
-```
+```javascript
 var foo = [
   {
     "site" : "HN",
@@ -63,3 +66,11 @@ var foo = [
   }
 ]
 ```
+
+Running Application
+-----------------------
+
+Install node.js and the dependencies.
+Run app with:
+
+    node app.js
