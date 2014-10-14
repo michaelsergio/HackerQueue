@@ -154,3 +154,8 @@ sup {
 #refresh{
 	cursor: pointer;
 }
+
+.story {
+	list-style: disc outside;
+	margin-left: 20px;
+}

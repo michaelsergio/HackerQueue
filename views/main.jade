@@ -3,38 +3,28 @@ extend layout
 block content
   ul(style="list-style:disc outside; margin-left:20px;")
     #helper
-
   hr
-  <div id="top" ng-show="content == 'first'" >
 
-  <div id="hTop" ng-hide="hn">
-  ul(ng-repeat="post in hackerTop | filter:searchText" style="list-style:disc outside; margin-left:20px;")
-    <li id="post"><p><a href={{post.url}} style="text-decoration:none" target="_blank">{{post.title}}</a> <sup><a href={{post.comments_link}} style="text-decoration:none" target="_blank">{{post.site}}</a></sup></p></li>
-  </div>
-  <div id="lTop" ng-hide="lobster">
-  ul(ng-repeat="post in lobTop | filter:searchText" style="list-style:disc outside; margin-left:20px;")
-    <li id="post"><p><a href={{post.url}} style="text-decoration:none" target="_blank">{{post.title}}</a> <sup><a href={{post.comments_link}} style="text-decoration:none" target="_blank">{{post.site}}</a></sup></p></li>
-  </div>
-  <div id="rTop" ng-hide="rprog">
-  ul(ng-repeat="post in rTop | filter:searchText" style="list-style:disc outside; margin-left:20px;")
-    <li id="post"><p><a href={{post.url}} style="text-decoration:none" target="_blank">{{post.title}}</a> <sup><a href={{post.comments_link}} style="text-decoration:none" target="_blank">{{post.site}}</a></sup></p></li>
-  </div>
 
-  </div>
+  //- The template for a story line item
+  mixin story(id, hide_id, items_id)
+    div(id=id ng-hide=hide_id)
+      ul.story(ng-repeat="post in " + items_id + " | filter:searchText")
+        li(id="post")
+          p
+            a(href="{{post.url}}" style="text-decoration:none" target="_blank") 
+              | {{post.title}}
+            sup
+              a(href="{{post.comments_link}}" style="text-decoration:none" target="_blank") 
+                | {{post.site}}
 
-  <div id="new" ng-show="content == 'other'">
+  #top(ng-show="content == 'first'")
+    +story("hTop", "hn", "hackerTop")
+    +story("lTop", "lobster", "lobTop")
+    +story("rTop", "rprog", "rTop")
 
-  <div id="hNew" ng-hide="hn">
-  ul(ng-repeat="post in hackerNew | filter:searchText" style="list-style:disc outside; margin-left:20px;")
-    <li id="post"><p><a href={{post.url}} style="text-decoration:none" target="_blank">{{post.title}}</a> <sup><a href={{post.comments_link}} style="text-decoration:none" target="_blank">{{post.site}}</a></sup></p></li>
-  </div>
-  <div id="lNew" ng-hide="lobster">
-  ul(ng-repeat="post in lNew | filter:searchText" style="list-style:disc outside; margin-left:20px;")
-    <li id="post"><p><a href={{post.url}} style="text-decoration:none" target="_blank">{{post.title}}</a> <sup><a href={{post.comments_link}} style="text-decoration:none" target="_blank">{{post.site}}</a></sup></p></li>
-  </div>
-  <div id="rNew" ng-hide="rprog">
-  ul(ng-repeat="post in rNew | filter:searchText" style="list-style:disc outside; margin-left:20px;")
-    <li id="post"><p><a href={{post.url}} style="text-decoration:none" target="_blank">{{post.title}}</a> <sup><a href={{post.comments_link}} style="text-decoration:none" target="_blank">{{post.site}}</a></sup></p></li>
-  </div>
+  #new(ng-show="content == 'other'")
+    +story("hNew", "hn", "hackerNew")
+    +story("lNew", "lobster", "lNew")
+    +story("rNew", "rprog", "rNew")
 
-  </div>
