@@ -115,10 +115,11 @@ footer {
   font-size: 13px;
 }
 #firstFooter {
-  width 500px;
-  margin 50px auto;
+  width: 500px;
+  margin: 50px auto;
   border-top: 1px dotter #ccc;
   padding-top: 5px;
+  padding-right: 10px;
   font-size: 18px;
   text-align: center;
 }
@@ -135,6 +136,7 @@ sup {
 .box {
   font-size: 18px;
   text-align: center;
+  padding-right: 10px;
 }
 .check{
   width: 20px;
@@ -159,3 +161,13 @@ sup {
 	list-style: disc outside;
 	margin-left: 20px;
 }
+.comment-link {
+  text-decoration:none
+}
+.comment-super {
+  padding-left: 6px;
+}
+.top {
+  padding-right: 10px;
+}
+.other { }

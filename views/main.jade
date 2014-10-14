@@ -12,10 +12,10 @@ block content
       ul.story(ng-repeat="post in " + items_id + " | filter:searchText")
         li.post
           p
-            a(href="{{post.url}}" style="text-decoration:none" target="_blank") 
+            a.comment-link(href="{{post.url}}" target="_blank") 
               | {{post.title}}
-            sup
-              a(href="{{post.comments_link}}" style="text-decoration:none" target="_blank") 
+            sup.comment-super
+              a.comment-link(href="{{post.comments_link}}", target="_blank") 
                 | {{post.site}}
 
   #top(ng-show="content == 'first'")
