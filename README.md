@@ -67,10 +67,13 @@ var foo = [
 ]
 ```
 
-Running Application
------------------------
-
 Install node.js and the dependencies.
 Run app with:
 
     node app.js
+
+##To Run Locally
+```shell
+$ npm install #installs dependencies
+$ node app.js #runs the program
+```
